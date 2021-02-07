@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^nmsl/', views.index),
 
-    # quote sub route
-    url(r'^app/', include('app.urls'))
+    # include sub route
+    url(r'^app/', include('app.urls')),
+    url(r'^two/', include('two.urls')),
 ]
