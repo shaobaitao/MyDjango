@@ -9,6 +9,9 @@ urlpatterns = {
     # 试图函数的返回值---页面
     url(r'^renderTest/', views.renderTest),
 
-    #two下的模板
-    url(r'^renderTestTwo',views.renderTestTwo),
+    # two下的模板
+    url(r'^renderTestTwo', views.renderTestTwo),
+
+    # render底层
+    url(r'^renderBase',views.renderBase)
 }
