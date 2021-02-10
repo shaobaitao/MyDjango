@@ -12,4 +12,8 @@ def renderTest(request):
 
 
 def renderTestTwo(request):
-    return render(request,'testRenderTwo.html')
+    context={
+        'list':[100,90,80,70],
+        'name':'sbt'
+    }
+    return render(request,'testRenderTwo.html',context=context)
