@@ -15,6 +15,9 @@ urlpatterns = {
     # render底层
     url(r'^renderBase',views.renderBase),
 
-    # mysql
-    url(r'^mysqlAdd',views.mysqlAdd),
+    # mysql CURD
+    url(r'^create',views.create),
+    url(r'^retrieve',views.retrieve),
+    url(r'^delete',views.delete),
+    url(r'^update',views.update)
 }

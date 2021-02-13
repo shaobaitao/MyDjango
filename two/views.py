@@ -36,10 +36,31 @@ def renderBase(request):
     return HttpResponse(result)
 
 
-def mysqlAdd(request):
-
-    animal=Animals()
-    animal.name='lizard'
-    animal.age=3
+def create(request):
+    animal = Animals()
+    animal.name = 'lizard'
+    animal.age = 3
     animal.save()
-    return HttpResponse('add success')
+    return HttpResponse('create success')
+
+
+def retrieve(request):
+    list = Animals.objects.all()
+    for a in list:
+        print(a.id,a.age,a.name)
+    return HttpResponse(list)
+
+
+def delete(request):
+    animal = Animals.objects.get(pk=2)
+    animal.delete()
+    return HttpResponse('delete success')
+
+
+def update(request):
+    animal = Animals.objects.get(pk=1)
+    animal.name = 'marmot'
+    animal.age = 10
+    animal.save()
+
+    return HttpResponse('update success')
