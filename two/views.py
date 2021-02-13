@@ -4,6 +4,8 @@ from django.shortcuts import render
 # Create your views here.
 from django.template import loader
 
+from two.models import Animals
+
 
 def index(request):
     return HttpResponse("This is tow index")
@@ -32,3 +34,12 @@ def renderBase(request):
     #  （2）渲染
     result = index.render(context=context)
     return HttpResponse(result)
+
+
+def mysqlAdd(request):
+
+    animal=Animals()
+    animal.name='lizard'
+    animal.age=3
+    animal.save()
+    return HttpResponse('add success')

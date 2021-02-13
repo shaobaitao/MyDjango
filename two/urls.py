@@ -13,5 +13,8 @@ urlpatterns = {
     url(r'^renderTestTwo', views.renderTestTwo),
 
     # render底层
-    url(r'^renderBase',views.renderBase)
+    url(r'^renderBase',views.renderBase),
+
+    # mysql
+    url(r'^mysqlAdd',views.mysqlAdd),
 }
