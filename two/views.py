@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.template import loader
 
 from two.models import Animals
+from two.models import Dogs
 
 
 def index(request):
@@ -45,9 +46,9 @@ def create(request):
 
 
 def retrieve(request):
-    list = Animals.objects.all()
-    for a in list:
-        print(a.id,a.age,a.name)
+    animals = Animals.objects.all()
+    for a in animals:
+        print(a.id, a.age, a.name)
     return HttpResponse(list)
 
 
@@ -64,3 +65,20 @@ def update(request):
     animal.save()
 
     return HttpResponse('update success')
+
+
+# 知道动物类别的id 查此类别所有动物的名字
+def getDogs(request):
+    animals = Animals.objects.get(id=3)
+    dogs = animals.dogs_set
+    dogList = []
+    for dog in dogs.all():
+        dogList.append(dog.name)
+    return HttpResponse(dogList)
+
+
+# 知道动物的名字 查此类别动物的id
+def getAnimals(request):
+    dogs = Dogs.objects.get(name='lisa')
+
+    return HttpResponse(dogs.fk.name)

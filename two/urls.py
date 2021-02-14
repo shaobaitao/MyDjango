@@ -13,11 +13,15 @@ urlpatterns = {
     url(r'^renderTestTwo', views.renderTestTwo),
 
     # render底层
-    url(r'^renderBase',views.renderBase),
+    url(r'^renderBase', views.renderBase),
 
     # mysql CURD
-    url(r'^create',views.create),
-    url(r'^retrieve',views.retrieve),
-    url(r'^delete',views.delete),
-    url(r'^update',views.update)
+    url(r'^create', views.create),
+    url(r'^retrieve', views.retrieve),
+    url(r'^delete', views.delete),
+    url(r'^update', views.update),
+
+    # mysql 一对多查询
+    url(r'^getDogs', views.getDogs),
+    url(r'^getAnimals', views.getAnimals),
 }
