@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -80,5 +80,13 @@ def getDogs(request):
 # 知道动物的名字 查此类别动物的id
 def getAnimals(request):
     dogs = Dogs.objects.get(name='lisa')
-
     return HttpResponse(dogs.fk.name)
+
+
+def fitter(request):
+    animals = Animals.objects.filter(name__contains='m')
+    data = {}
+    for index, animal in enumerate(animals):
+        data[index] = animal.name
+        # data[index]['id'] = animal.id
+    return JsonResponse(data)

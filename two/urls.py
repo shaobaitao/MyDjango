@@ -24,4 +24,7 @@ urlpatterns = {
     # mysql 一对多查询
     url(r'^getDogs', views.getDogs),
     url(r'^getAnimals', views.getAnimals),
+
+    # fitter exclude查询
+    url(r'fitter', views.fitter),
 }
