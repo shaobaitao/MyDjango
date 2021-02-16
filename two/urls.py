@@ -26,5 +26,9 @@ urlpatterns = {
     url(r'^getAnimals', views.getAnimals),
 
     # fitter exclude查询
-    url(r'fitter', views.fitter),
+    url(r'^fitter', views.fitter),
+
+    # 带参数请求
+    url(r'^courses',views.course),
+    url(r'^students',views.students),
 }

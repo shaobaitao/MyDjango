@@ -4,7 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.template import loader
 
-from two.models import Animals
+from two.models import Animals, Courses, Students
 from two.models import Dogs
 
 
@@ -90,3 +90,23 @@ def fitter(request):
         data[index] = animal.name
         # data[index]['id'] = animal.id
     return JsonResponse(data)
+
+
+def course(request):
+    courses = Courses.objects.all()
+
+    context = {
+        'courses': courses
+    }
+    return render(request, 'courses.html', context=context)
+
+
+def students(request):
+    courseId = request.GET.get('id')
+
+    students = Students.objects.filter(course_id=courseId)
+
+    context = {
+        'students': students
+    }
+    return render(request, 'students.html', context=context)
