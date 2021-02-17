@@ -110,3 +110,10 @@ def students(request):
         'students': students
     }
     return render(request, 'students.html', context=context)
+
+
+def createObjects(request):
+    courses = Courses()
+    courses.name = 'UI'
+    courses.save()
+    return HttpResponse('create object success')

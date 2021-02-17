@@ -31,4 +31,7 @@ urlpatterns = {
     # 带参数请求
     url(r'^courses',views.course),
     url(r'^students',views.students),
+
+    # 4 methods of create objects
+    url(r'^createObjects',views.createObjects),
 }
