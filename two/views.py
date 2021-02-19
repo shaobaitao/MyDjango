@@ -28,12 +28,12 @@ def renderBase(request):
     # render的底层实现分为两步
     #  （1）加载
 
-    index = loader.get_template('renderBase.html')
+    t = loader.get_template('renderBase.html')
     context = {
         'name': 'sbt'
     }
     #  （2）渲染
-    result = index.render(context=context)
+    result = t.render(context=context)
     return HttpResponse(result)
 
 
@@ -86,8 +86,8 @@ def getAnimals(request):
 def fitter(request):
     animals = Animals.objects.filter(name__contains='m')
     data = {}
-    for index, animal in enumerate(animals):
-        data[index] = animal.name
+    for i, animal in enumerate(animals):
+        data[i] = animal.name
         # data[index]['id'] = animal.id
     return JsonResponse(data)
 
@@ -104,10 +104,10 @@ def course(request):
 def students(request):
     courseId = request.GET.get('id')
 
-    students = Students.objects.filter(course_id=courseId)
+    student = Students.objects.filter(course_id=courseId)
 
     context = {
-        'students': students
+        'students': student
     }
     return render(request, 'students.html', context=context)
 
@@ -117,3 +117,10 @@ def createObjects(request):
     courses.name = 'UI'
     courses.save()
     return HttpResponse('create object success')
+
+
+def orderBy(request):
+    courses = Courses.objects.order_by('num')
+    for i in courses:
+        print(i.id, i.name, i.num)
+    return HttpResponse('order by success')

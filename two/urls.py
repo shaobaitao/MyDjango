@@ -29,9 +29,12 @@ urlpatterns = {
     url(r'^fitter', views.fitter),
 
     # 带参数请求
-    url(r'^courses',views.course),
-    url(r'^students',views.students),
+    url(r'^courses', views.course),
+    url(r'^students', views.students),
 
     # 4 methods of create objects
-    url(r'^createObjects',views.createObjects),
+    url(r'^createObjects', views.createObjects),
+
+    # 链式查询  all() fitter() exclude() order_by()
+    url(r'^orderBy',views.orderBy),
 }

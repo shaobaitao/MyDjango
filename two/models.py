@@ -14,7 +14,7 @@ class Dogs(models.Model):
 
 class Courses(models.Model):
     name = models.CharField(max_length=32)
-
+    num = models.IntegerField(default=1)
 
 class Students(models.Model):
     name = models.CharField(max_length=32)
