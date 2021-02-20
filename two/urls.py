@@ -37,4 +37,7 @@ urlpatterns = {
 
     # 链式查询  all() fitter() exclude() order_by()
     url(r'^orderBy',views.orderBy),
+
+    # 获取单个对象
+    url(r'^getOne',views.getOne),
 }

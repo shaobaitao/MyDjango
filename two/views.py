@@ -124,3 +124,20 @@ def orderBy(request):
     for i in courses:
         print(i.id, i.name, i.num)
     return HttpResponse('order by success')
+
+
+def getOne(request):
+    # animal = Animals.objects.first()
+
+    # animal = Animals.objects.last()
+
+    # animal = Animals.objects.exists()
+    # animal = Animals.objects.filter(name='lizard')
+    # if animal.exists():
+    #     print(animal exist)
+    # else:
+    #     print(animal not exist)
+
+    animal = Animals.objects.filter(name='lizard').count()
+    print(animal)
+    return HttpResponse('get one success')
