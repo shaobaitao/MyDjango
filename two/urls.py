@@ -36,8 +36,15 @@ urlpatterns = {
     url(r'^createObjects', views.createObjects),
 
     # 链式查询  all() fitter() exclude() order_by()
-    url(r'^orderBy',views.orderBy),
+    url(r'^orderBy', views.orderBy),
 
     # 获取单个对象
-    url(r'^getOne',views.getOne),
+    url(r'^getOne', views.getOne),
+
+    # 字段查询
+    url(r'^testFind', views.testFind),
+
+    # date operation
+    url(r'^dateAdd', views.dateAdd),
+    url(r'^dateFind', views.dateFind),
 }

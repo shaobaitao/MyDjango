@@ -4,7 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.template import loader
 
-from two.models import Animals, Courses, Students
+from two.models import Animals, Courses, Students, Orders
 from two.models import Dogs
 
 
@@ -141,3 +141,30 @@ def getOne(request):
     animal = Animals.objects.filter(name='lizard').count()
     print(animal)
     return HttpResponse('get one success')
+
+
+def testFind(request):
+    # student = Students.objects.filter(id__gt=4)
+    # student = Students.objects.filter(id__in=[1,3,5])
+    # student = Students.objects.filter(name__startswith='j')
+    # student = Students.objects.filter(name__endswith='x')
+    student = Students.objects.filter(name__contains='i')
+
+    for i in student:
+        print(i.id, i.name)
+    return HttpResponse('find one success')
+
+
+def dateAdd(request):
+
+    order = Orders()
+    order.save()
+    return HttpResponse('success')
+
+
+def dateFind(request):
+
+    orderList = Orders.objects.filter(date__month=2)
+    for order in orderList:
+        print(order.id, order.date)
+    return HttpResponse('success')

@@ -16,6 +16,11 @@ class Courses(models.Model):
     name = models.CharField(max_length=32)
     num = models.IntegerField(default=1)
 
+
 class Students(models.Model):
     name = models.CharField(max_length=32)
     course = models.ForeignKey(Courses, null=True, on_delete=models.SET_NULL)
+
+
+class Orders(models.Model):
+    date = models.DateTimeField(auto_now_add=True)
