@@ -1,4 +1,4 @@
-from django.db.models import Sum
+from django.db.models import Sum, Avg, Max, Min, Count
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
@@ -171,8 +171,18 @@ def dateFind(request):
     return HttpResponse('success')
 
 
-def aggregateSum(request):
+def aggregate(request):
 
     ageSum = Animals.objects.aggregate(Sum('age'))
     print(ageSum)
+    ageAvg = Animals.objects.aggregate(Avg('age')).get('age__avg')
+    print(ageAvg)
+    ageMax = Animals.objects.aggregate(Max('age'))
+    print(ageMax)
+    ageMin = Animals.objects.aggregate(Min('age'))
+    print(ageMin)
+    ageCount = Animals.objects.aggregate(Count('age'))
+    print(ageCount)
+    age = Animals.objects.aggregate(Sum('age'), Avg('age'), Max('age'), Min('age'), Count('age'))
+    print(age)
     return HttpResponse('success')
