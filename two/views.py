@@ -1,3 +1,4 @@
+from django.db.models import Sum
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
@@ -167,4 +168,11 @@ def dateFind(request):
     orderList = Orders.objects.filter(date__month=2)
     for order in orderList:
         print(order.id, order.date)
+    return HttpResponse('success')
+
+
+def aggregateSum(request):
+
+    ageSum = Animals.objects.aggregate(Sum('age'))
+    print(ageSum)
     return HttpResponse('success')

@@ -47,4 +47,8 @@ urlpatterns = {
     # date operation
     url(r'^dateAdd', views.dateAdd),
     url(r'^dateFind', views.dateFind),
+
+    # aggregate function
+    url(r'^aggregateSum', views.aggregateSum),
+
 }
