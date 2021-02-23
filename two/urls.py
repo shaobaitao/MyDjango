@@ -51,4 +51,6 @@ urlpatterns = {
     # aggregate function
     url(r'^aggregate', views.aggregate),
 
+    # F&Q object
+    url(r'^FQ', views.FQ),
 }

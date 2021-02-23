@@ -1,4 +1,4 @@
-from django.db.models import Sum, Avg, Max, Min, Count
+from django.db.models import Sum, Avg, Max, Min, Count, F, Q
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
@@ -157,14 +157,12 @@ def testFind(request):
 
 
 def dateAdd(request):
-
     order = Orders()
     order.save()
     return HttpResponse('success')
 
 
 def dateFind(request):
-
     orderList = Orders.objects.filter(date__month=2)
     for order in orderList:
         print(order.id, order.date)
@@ -172,7 +170,6 @@ def dateFind(request):
 
 
 def aggregate(request):
-
     ageSum = Animals.objects.aggregate(Sum('age'))
     print(ageSum)
     ageAvg = Animals.objects.aggregate(Avg('age')).get('age__avg')
@@ -185,4 +182,17 @@ def aggregate(request):
     print(ageCount)
     age = Animals.objects.aggregate(Sum('age'), Avg('age'), Max('age'), Min('age'), Count('age'))
     print(age)
+    return HttpResponse('success')
+
+
+def FQ(request):
+    # find courses with id greater than num
+    course_list = Courses.objects.filter(id__gt=F('num'))
+    for i in course_list:
+        print(i.id, i.name, i.num)
+
+    # find courses with num less than or equal to 3
+    course_list = Courses.objects.filter(~Q(num__gt=3))
+    for i in course_list:
+        print(i.id, i.name, i.num)
     return HttpResponse('success')
