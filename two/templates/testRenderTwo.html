@@ -7,6 +7,10 @@
 <body>
 <p>This is Two templates directory</p>
     <p>and my name is {{ name }}</p>
-    <p>my scores are {{ list }}</p>
+{% for foo in list %}
+    <p>my scores are {{ foo }}</p>
+{% endfor %}
+
+
 </body>
 </html>
