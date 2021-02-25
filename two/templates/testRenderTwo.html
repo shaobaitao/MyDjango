@@ -6,11 +6,18 @@
 </head>
 <body>
 <p>This is Two templates directory</p>
-    <p>and my name is {{ name }}</p>
+<p>and my name is {{ name }}</p>
 {% for foo in list %}
     <p>my scores are {{ foo }}</p>
 {% endfor %}
-
+{# django 单行注释#}
+{% comment %}
+多行注释
+多行注释
+多行注释
+{% endcomment %}
+<hr>
+{% widthratio 1 1 5 %} {# 乘数 分子 分母 #}
 
 </body>
 </html>
