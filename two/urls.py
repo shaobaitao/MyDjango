@@ -53,4 +53,7 @@ urlpatterns = {
 
     # F&Q object
     url(r'^FQ', views.FQ),
+
+    # json
+    url(r'^getJson',views.getJson)
 }

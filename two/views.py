@@ -1,3 +1,5 @@
+import json
+
 from django.db.models import Sum, Avg, Max, Min, Count, F, Q
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
@@ -196,3 +198,13 @@ def FQ(request):
     for i in course_list:
         print(i.id, i.name, i.num)
     return HttpResponse('success')
+
+
+def getJson(request):
+    data = {
+        'name': "shaobaitao",
+        'age': 20,
+        'height': 173,
+        'weight': 55.5,
+    }
+    return JsonResponse(json.dumps(data))
