@@ -202,9 +202,25 @@ def FQ(request):
 
 def getJson(request):
     data = {
-        'name': "shaobaitao",
+        'name': "邵柏涛",
         'age': 20,
         'height': 173,
         'weight': 55.5,
     }
-    return JsonResponse(json.dumps(data))
+    # return JsonResponse(data)
+    return HttpResponse(json.dumps(data, ensure_ascii=False), content_type="application/json")
+
+
+def route(request, id):
+    print(id, type(id))
+    return HttpResponse('success')
+
+
+def routeLocation(request, year, month, day):
+    print(year + '/' + month + '/' + day)
+    return HttpResponse('success')
+
+
+def routeKey(request, month, day, year):
+    print(year + '/' + month + '/' + day)
+    return HttpResponse('success')

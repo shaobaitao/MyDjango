@@ -55,5 +55,10 @@ urlpatterns = {
     url(r'^FQ', views.FQ),
 
     # json
-    url(r'^getJson',views.getJson)
+    url(r'^getJson', views.getJson),
+
+    # route parameters
+    url(r'^route/(\d+)$',views.route),
+    url(r'^routeLocation/(\d{4})/(\d+)/(\d+)',views.routeLocation),
+    url(r'^routeKey/(?P<year>\d{4})/(?P<month>\d+)/(?P<day>\d+)',views.routeKey),
 }
