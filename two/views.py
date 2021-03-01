@@ -6,6 +6,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.template import loader
+from django.urls import reverse
 
 from two.models import Animals, Courses, Students, Orders
 from two.models import Dogs
@@ -224,3 +225,12 @@ def routeLocation(request, year, month, day):
 def routeKey(request, month, day, year):
     print(year + '/' + month + '/' + day)
     return HttpResponse('success')
+
+
+def reverseAnalysis(request):
+    print(reverse('two:reverseAnalysis'))
+    return HttpResponse('success')
+
+
+def reverseUrl(request):
+    return render(request,'reverseUrl.html')

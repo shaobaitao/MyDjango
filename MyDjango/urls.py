@@ -25,5 +25,5 @@ urlpatterns = [
 
     # include sub route
     url(r'^app/', include('app.urls')),
-    url(r'^two/', include('two.urls')),
+    url(r'^two/', include(('two.urls', 'two'), namespace='two')),
 ]

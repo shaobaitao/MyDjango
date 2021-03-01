@@ -2,7 +2,7 @@ from django.conf.urls import url
 
 from two import views
 
-urlpatterns = {
+urlpatterns = [
     # 视图函数的返回值---字符串
     url(r'^index/', views.index),
 
@@ -61,4 +61,8 @@ urlpatterns = {
     url(r'^route/(\d+)$',views.route),
     url(r'^routeLocation/(\d{4})/(\d+)/(\d+)',views.routeLocation),
     url(r'^routeKey/(?P<year>\d{4})/(?P<month>\d+)/(?P<day>\d+)',views.routeKey),
-}
+
+    # Reverse analysis
+    url(r'^reverseAnalysis',views.reverseAnalysis,name='reverseAnalysis'),
+    url(r'^reverseUrl',views.reverseUrl),
+]
