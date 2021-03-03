@@ -65,4 +65,7 @@ urlpatterns = [
     # Reverse analysis
     url(r'^reverseAnalysis',views.reverseAnalysis,name='reverseAnalysis'),
     url(r'^reverseUrl',views.reverseUrl),
+
+    # request info
+    url(r'^requestInfo',views.requestInfo),
 ]

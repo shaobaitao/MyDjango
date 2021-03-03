@@ -233,4 +233,17 @@ def reverseAnalysis(request):
 
 
 def reverseUrl(request):
-    return render(request,'reverseUrl.html')
+    return render(request, 'reverseUrl.html')
+
+
+def requestInfo(request):
+    # http://127.0.0.1:8080/two/requestInfo?name=sbt&age=33
+    print(request.method)
+    print(request.GET)
+    print(request.GET.get('name'))
+    print(request.path)
+    print(request.get_host())
+    print(request.get_full_path_info())
+    print(request.META.get("REMOTE_ADDR"))
+
+    return HttpResponse('success')
