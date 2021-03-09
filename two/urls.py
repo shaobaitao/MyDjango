@@ -58,14 +58,17 @@ urlpatterns = [
     url(r'^getJson', views.getJson),
 
     # route parameters
-    url(r'^route/(\d+)$',views.route),
-    url(r'^routeLocation/(\d{4})/(\d+)/(\d+)',views.routeLocation),
-    url(r'^routeKey/(?P<year>\d{4})/(?P<month>\d+)/(?P<day>\d+)',views.routeKey),
+    url(r'^route/(\d+)$', views.route),
+    url(r'^routeLocation/(\d{4})/(\d+)/(\d+)', views.routeLocation),
+    url(r'^routeKey/(?P<year>\d{4})/(?P<month>\d+)/(?P<day>\d+)', views.routeKey),
 
     # Reverse analysis
-    url(r'^reverseAnalysis',views.reverseAnalysis,name='reverseAnalysis'),
-    url(r'^reverseUrl',views.reverseUrl),
+    url(r'^reverseAnalysis', views.reverseAnalysis, name='reverseAnalysis'),
+    url(r'^reverseUrl', views.reverseUrl),
 
     # request info
-    url(r'^requestInfo',views.requestInfo),
+    url(r'^requestInfo', views.requestInfo),
+
+    # Cookies Sessions Token
+
 ]
