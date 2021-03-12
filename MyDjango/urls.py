@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^app/', include('app.urls')),
     url(r'^two/', include(('two.urls', 'two'), namespace='two')),
     url(r'^cook/',include(('CookAPP.urls', 'cook'),namespace='cook')),
+    url(r'^sess/',include(('SessAPP.urls', 'sess'),namespace='sess')),
 ]
